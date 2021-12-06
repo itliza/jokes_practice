@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Homework</title>
+        <meta charset = "utf-8">
+        <style>
+            .joke__form {
+                display: flex;
+                flex-direction: column;
+                padding: 10px;
+                border: 2px solid black;
+            }
+            .joke__form label {
+                margin-bottom: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <form id="jokesForm" class="joke__form">
+            <label>
+                Random: <input type="radio" value="random" name="jokesType" checked>
+            </label>
+            <label>
+                Categories: <input type="radio" value="categories" name="jokesType">
+                <ul id="jokesCategories"></ul>
+            </label>
+            <label>
+                Search: <input type="radio" value="search" name="jokesType">
+                <input type="text" id="jokeText">
+            </label>
+
+            <button>Get Joke</button>
+        </form>  
+        <script src="script.js"></script>
+
+    </body>
+</html>
