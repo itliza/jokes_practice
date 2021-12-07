@@ -13,6 +13,25 @@
             .joke__form label {
                 margin-bottom: 10px;
             }
+            .container {
+                display: flex;
+            }
+            .joke__container {
+                background: #dedede;
+                padding: 10px;
+                width: 50%;
+            }
+            .joke__container--fav {
+                background: lavender;
+                padding: 10px;
+                width: 50%;
+            }
+            .joke {
+                border: 1px solid black;
+                padding: 10px;
+                border-radius: 2px;
+                margin-bottom: 10px;
+            }
         </style>
     </head>
     <body>
@@ -31,6 +50,11 @@
 
             <button>Get Joke</button>
         </form>  
+
+        <div class="container">
+            <div id="jokesContainer" class="joke__container"></div>
+            <div id="jokesContainerFav" class="joke__container--fav"></div>
+        </div>
         <script src="script.js"></script>
 
     </body>
