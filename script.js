@@ -74,15 +74,32 @@ class Joke {
 
 		let jokeBtnFav = document.createElement(`button`);
 		jokeBtnFav.innerHTML = this.favourite ? `❤️` : `🤍`;
+		jokeBtnFav.dataset.id = `j${this.id}`;
+		jokeBtnFav.dataset.favourite = this.favourite ? true : false;
+		
 		jokeBtnFav.addEventListener(`click`, ()=>{
 			
-			this.favourite = true;
+			jokeBtnFav.dataset.favourite = jokeBtnFav.dataset.favourite === 'true' ? false : true;
+			this.favourite = jokeBtnFav.dataset.favourite === 'true' ? true : false;
+
+			jokeBtnFav.innerHTML = this.favourite ? `❤️` : `🤍`;
+
 
 			let storage = localStorage.getItem('favouriteJokes') ? JSON.parse(localStorage.getItem('favouriteJokes')) : [];
 
-			storage.push(this);
+			if(this.favourite){
+				storage.push(this);
+			} else {
+				let jokeIndex = storage.findIndex(joke => joke.id === this.id);
+				storage.splice(jokeIndex, 1);
 
+				let jokeBlockSearch = document.querySelector(`button[data-id="j${this.id}"]`);
+				jokeBlockSearch.dataset.favourite = false;
+				jokeBlockSearch.innerHTML = `🤍`;
+			}
+			
 			localStorage.setItem('favouriteJokes', JSON.stringify(storage));
+			renderFavJokes();
 		})
 
 
@@ -97,6 +114,7 @@ class Joke {
 }
 
 const renderFavJokes = () => {
+	jokesContainerFav.innerHTML = ``;
 	let storage = localStorage.getItem('favouriteJokes') ? JSON.parse(localStorage.getItem('favouriteJokes')) : [];
 	storage.forEach(joke => new Joke(joke));
 }
