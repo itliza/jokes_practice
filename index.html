@@ -1,30 +1,42 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Homework</title>
+        <title>Jokes</title>
         <meta charset = "utf-8">
         <link rel="stylesheet" href="css/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap" rel="stylesheet">
     </head>
     <body>
-        <form id="jokesForm" class="joke__form">
-            <label>
-                Random: <input type="radio" value="random" name="jokesType" checked>
-            </label>
-            <label>
-                Categories: <input type="radio" value="categories" name="jokesType">
-                <ul id="jokesCategories"></ul>
-            </label>
-            <label>
-                Search: <input type="radio" value="search" name="jokesType">
-                <input type="text" id="jokeText">
-            </label>
+        <div class="box">
+            <div class="container">
+                <header>
+                    <h2>Hey!</h2>
+                    <h3>Let’s try to find a joke for you:</h3>
+                </header>
+                <form id="jokesForm" class="joke__form">
+                    <label>
+                        <input type="radio" value="random" name="jokesType" checked> Random
+                    </label>
+                    <label class="category">
+                        <input type="radio" value="categories" name="jokesType"> Categories
+                        <ul id="jokesCategories"></ul>
+                    </label>
+                    <label>
+                        <input type="radio" value="search" name="jokesType">
+                        <input type="text" id="jokeText"> Search
+                    </label>
 
-            <button>Get Joke</button>
-        </form>  
+                    <button class="get__btn">Get Joke</button>
+                </form>  
+                
+                <div id="jokesContainer" class="joke__container"></div>
+            </div>
 
-        <div class="container">
-            <div id="jokesContainer" class="joke__container"></div>
-            <div id="jokesContainerFav" class="joke__container--fav"></div>
+            <div id="jokesContainerFav" class="joke__container--fav">
+                <div>Favourite</div>
+            </div>
         </div>
         <script src="script.js"></script>
 

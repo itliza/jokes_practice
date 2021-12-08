@@ -103,8 +103,8 @@ class Joke {
 		})
 
 
-		jokeBlock.innerHTML += `<p>${this.value}</p>
-		${this.categories.length ? `<p><b>${this.categories[0]}</b></p>` : ``}`
+		jokeBlock.innerHTML += `<p class="joke__text">${this.value}</p>
+		${this.categories.length ? `<p class="joke__category">${this.categories[0]}</p>` : ``}`
 
 		jokeBlock.prepend(jokeBtnFav);
 
